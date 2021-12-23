@@ -1,0 +1,15 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/sh
+
+# Only show active apps in the dock
+defaults write com.apple.dock static-only -bool true
+
+# Set the dock size
+defaults write com.apple.dock tilesize -integer 35
+
+# Hide
+defaults write com.apple.dock autohide-time-modifier -float 1
+
+# Kill the dock and let it restart to take new settings
+killall Dock
+{{ end -}}
