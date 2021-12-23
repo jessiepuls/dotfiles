@@ -12,7 +12,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
-          echo "GH_KEY_NAME=`$(date +%s)--${{ github.sha }}`" >> $GITHUB_ENV
+          echo "GH_KEY_NAME=`echo $(date +%s)--${{ github.sha }}`" >> $GITHUB_ENV
       - name: Run install script
         run: |
           echo "Would use token ${{ env.GH_TOKEN }}"
