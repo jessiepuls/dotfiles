@@ -1,0 +1,25 @@
+name: Test install script
+on: push
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ubuntu-latest, macos-latest, macos-11]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set environment variables
+        run: |
+          export GH_TOKEN=secret.gh_token
+          echo "::set-env name=GH_TOKEN::$GH_TOKEN"
+          export GH_KEY_NAME=$(date +%s)--${{ github.sha }}
+          echo "::set-env name=GH_KEY_NAME::$GH_KEY_NAME"
+      - name: Run install script
+        run: |
+          echo "Would use token ${{ env.GH_TOKEN }}"
+          echo "Would save key ${{ env.GH_KEY_NAME }}"
+      - name: Cleanup after tests
+        run: |
+          echo "Would use token ${{ env.GH_TOKEN }}"
+          echo "Would remove key ${{ env.GH_KEY_NAME }}"
