@@ -2,7 +2,7 @@
 
 FILE=~/.ssh/id_rsa_github.pub
 if [ ! -f "$FILE" ]; then
-    echo "Setting up ssh key for github"
+    echo "💻 Setting up ssh key for github"
 
     # create an ssh key
     ssh-keygen -f ~/.ssh/id_rsa_github -q -N ""
