@@ -1,0 +1,15 @@
+[user]
+    name = Jessie Puls
+    email = jessiepuls@gmail.com
+
+[init]
+	defaultBranch = main
+
+[includeIf "gitdir:~/code/td/"]
+    path = .gitconfig-td
+
+[includeIf "gitdir:~/code/mode/"]
+    path = .gitconfig-td
+
+[includeIf "gitdir:~/code/github/"]
+    path = .gitconfig-td
