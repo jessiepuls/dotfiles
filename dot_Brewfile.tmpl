@@ -1,0 +1,30 @@
+tap "homebrew/cask"
+
+brew "asdf"
+brew "chezmoi"
+{{ if eq .chezmoi.os "darwin" }}
+brew "docker"
+{{ else }}
+brew "docker", args: ["build-from-source"]
+{{ end }}
+brew "gh"
+brew "git"
+cask "google-chrome"
+{{ if eq .chezmoi.os "darwin" }}
+cask "iterm2"
+brew "mas"
+{{ end }}
+cask "spotify"
+cask "visual-studio-code"
+brew "zsh"
+
+{{ if eq .chezmoi.os "darwin" }}
+mas "1Password 7",    id: 443987910
+mas "Alfred",         id: 405843582
+mas "GoodNotes",      id: 1444383602
+mas "Kindle",         id: 405399194
+mas "Pixelmator Pro", id: 1289583905
+mas "Slack",          id: 803453959
+mas "Todoist",        id: 585829637
+mas "Tweetbot",       id: 1384080005
+{{ end }}
