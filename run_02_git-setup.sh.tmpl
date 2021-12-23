@@ -1,5 +1,18 @@
 #!/bin/sh
 
-# create an ssh key
-# sign into github
-# push key into github and prompt for a name
+FILE=~/.ssh/id_rsa_github.pub
+if [ ! -f "$FILE" ]; then
+    echo "Setting up ssh key for github"
+
+    # create an ssh key
+    ssh-keygen -f ~/.ssh/id_rsa_github -q -N ""
+
+    # sign into github
+    gh auth login -s admin:public_key --web
+
+    echo "Enter a name for this key:"
+    read key_name
+
+    # push key into github and prompt for a name
+    gh ssh-key add ~/.ssh/id_rsa_github.pub --title $key_name
+fi
