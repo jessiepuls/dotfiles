@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
+
+echo "testing 1 2 3"
+if [[ -n $CI ]]
+then 
+    echo "Exiting github setup for CI"
+    exit 0
+else 
 
 FILE=~/.ssh/id_rsa_github
 if [ ! -f "$FILE" ]; then

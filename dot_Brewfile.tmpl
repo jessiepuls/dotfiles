@@ -20,7 +20,10 @@ cask "spotify"
 cask "visual-studio-code"
 brew "zsh"
 
-{{ if eq .chezmoi.os "darwin" }}
+{{/* we're going to skip mas installed apps in CI rather than sign into the app store */}}
+{{- $ci:= env "CI" | not | not -}}
+
+{{- if (and (eq .chezmoi.os "darwin") (not $ci)) -}}
 mas "1Password 7",    id: 443987910
 mas "Alfred",         id: 405843582
 mas "GoodNotes",      id: 1444383602
@@ -29,4 +32,4 @@ mas "Pixelmator Pro", id: 1289583905
 mas "Slack",          id: 803453959
 mas "Todoist",        id: 585829637
 mas "Tweetbot",       id: 1384080005
-{{ end }}
+{{- end -}}
