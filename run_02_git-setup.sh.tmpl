@@ -10,8 +10,12 @@ if [ ! -f "$FILE" ]; then
     # sign into github
     gh auth login -s admin:public_key --web
 
-    echo "Enter a name for this key:"
-    read key_name
+    if [[ -z "${GITHUB_KEY_NAME}" ]]; then
+        echo "Enter a name for this key:"
+        read key_name
+    else
+        key_name=${GITHUB_KEY_NAME}
+    fi
 
     # push key into github and prompt for a name
     gh ssh-key add ~/.ssh/$FILE.pub --title $key_name
