@@ -5,7 +5,7 @@ if [[ -n $CI ]]
 then 
     echo "Exiting github setup for CI"
     exit 0
-else 
+fi 
 
 FILE=~/.ssh/id_rsa_github
 if [ ! -f "$FILE" ]; then
