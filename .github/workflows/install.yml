@@ -9,15 +9,10 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set environment variables
-        run: |
-          echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
-          echo "GH_KEY_NAME=`echo $(date +%s)--${{ github.sha }}`" >> $GITHUB_ENV
       - name: Run install script
         run: |
-          echo "Would use token ${{ env.GH_TOKEN }}"
-          echo "Would save key ${{ env.GH_KEY_NAME }}"
-      - name: Cleanup after tests
-        run: |
-          echo "Would use token ${{ env.GH_TOKEN }}"
-          echo "Would remove key ${{ env.GH_KEY_NAME }}"
+          echo "Creating a fake ssh key so that step gets skipped in the process"
+          mkdir -p ~/.ssh
+          touch ~/.ssh/id_rsa_github
+          echo "Running Install Script"
+          echo | ./install.sh
