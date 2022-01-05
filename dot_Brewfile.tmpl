@@ -9,6 +9,7 @@ brew "docker"
 {{ else }}
 brew "docker", args: ["build-from-source"]
 {{ end }}
+cask "dropbox"
 brew "gh"
 brew "git"
 cask "google-chrome"
@@ -19,6 +20,7 @@ brew "mas"
 cask "spotify"
 cask "visual-studio-code"
 brew "zsh"
+cask "zoom"
 
 {{/* we're going to skip mas installed apps in CI rather than sign into the app store */}}
 {{- $ci:= env "CI" | not | not -}}
