@@ -3,13 +3,19 @@
     email = jessiepuls@gmail.com
 
 [init]
-	defaultBranch = main
+        defaultBranch = main
 
 [includeIf "gitdir:~/code/td/"]
     path = .gitconfig-td
 
 [includeIf "gitdir:~/code/mode/"]
-    path = .gitconfig-td
+    path = .gitconfig-mode
 
 [includeIf "gitdir:~/code/github/"]
     path = .gitconfig-td
+[pull]
+        rebase = false
+[fetch]
+        prune = true
+[diff]
+        colorMoved = zebra
