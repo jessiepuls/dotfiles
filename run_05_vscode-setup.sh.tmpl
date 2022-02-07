@@ -1,0 +1,28 @@
+#!/bin/sh
+
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+
+
+declare -a to_install=(
+    "ms-vscode-remote.remote-containers"
+    "ms-vscode-remote.remote-ssh"
+    "golang.go"
+    "iliazeus.vscode-ansi"
+    "hashicorp.terraform"
+)
+
+declare -a installed=`code --list-extensions`
+
+echo "Installing VSCode Extensions"
+for i in "${to_install[@]}"
+do
+    if [[ ! ${installed[*]} =~ ${i} ]]; then
+        echo "${GREEN}Installing ${i}"
+        code --install-extension $i
+    fi
+
+    if [[ ${installed[*]} =~ ${i} ]]; then
+        echo "${YELLOW}${i} previously installed"
+    fi
+done
