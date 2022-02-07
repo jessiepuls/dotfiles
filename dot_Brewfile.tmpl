@@ -11,7 +11,10 @@ brew "awscli"
 brew "chezmoi"
 brew "gh"
 brew "git"
+{{- /* The macos image for github actions has this preinstalled and it is dumb */ -}}
+{{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
 brew "golang"
+{{ end }}
 {{ if eq .chezmoi.os "darwin" }}
 brew "mas"
 {{ end }}
