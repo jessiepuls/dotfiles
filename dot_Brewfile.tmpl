@@ -3,32 +3,29 @@ tap "homebrew/cask"
 {{/* Need to do some special things inside of CI for mac */}}
 {{- $ci:= env "CI" | not | not -}}
 
-brew "asdf"
-{{- /* The macos image for github actions has this preinstalled and it is dumb */ -}}
+{{- /* The macos image for github actions has these packages preinstalled and it is dumb */ -}}
 {{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
 brew "awscli"
+brew "golang"
 {{ end }}
+
+{{- /* Mac only packages */ -}}
+{{ if eq .chezmoi.os "darwin" }}
+cask "iterm2"
+brew "mas"
+{{ end }}
+
+brew "asdf"
 brew "chezmoi"
 brew "gh"
 brew "git"
-{{- /* The macos image for github actions has this preinstalled and it is dumb */ -}}
-{{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
-brew "golang"
-{{ end }}
-{{ if eq .chezmoi.os "darwin" }}
-brew "mas"
-{{ end }}
 brew "saml2aws"
 brew "zsh"
-
 cask "1password-cli"
 cask "discord"
 cask "docker"
 cask "dropbox"
 cask "google-chrome"
-{{ if eq .chezmoi.os "darwin" }}
-cask "iterm2"
-{{ end }}
 cask "spotify"
 cask "steam"
 cask "toggl-track"
