@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -18,11 +18,11 @@ echo "Installing VSCode Extensions"
 for i in "${to_install[@]}"
 do
     if [[ ! ${installed[*]} =~ ${i} ]]; then
-        echo "${GREEN}Installing ${i}"
+        printf "${GREEN}Installing ${i}\n"
         code --install-extension $i
     fi
 
     if [[ ${installed[*]} =~ ${i} ]]; then
-        echo "${YELLOW}${i} previously installed"
+        printf "${YELLOW}${i} previously installed\n"
     fi
 done
