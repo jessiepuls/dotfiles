@@ -11,7 +11,7 @@ if [ ! -f "$FILE" ]; then
     echo "💻 Setting up ssh key for github"
 
     # create an ssh key
-    ssh-keygen -f ~/.ssh/$FILE -q -N ""
+    ssh-keygen -f $FILE -q -N ""
 
     # sign into github
     gh auth login -s admin:public_key --web
@@ -24,5 +24,5 @@ if [ ! -f "$FILE" ]; then
     fi
 
     # push key into github and prompt for a name
-    gh ssh-key add ~/.ssh/$FILE.pub --title $key_name
+    gh ssh-key add $FILE.pub --title $key_name
 fi
