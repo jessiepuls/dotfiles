@@ -112,3 +112,6 @@ export PATH="$HOME/.rvm/bin:$PATH"
 
 # Add home bin to path
 export PATH="$HOME/bin:$PATH"
+
+# Playdate path
+export PLAYDATE_SDK_PATH=$HOME/Developer/PlaydateSDK
