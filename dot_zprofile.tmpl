@@ -36,11 +36,6 @@ export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
 export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
 export HOMEBREW_BUNDLE_NO_LOCK=true
 
-# asdf
-export ASDF_DIR=$HOMEBREW_PREFIX/opt/asdf/libexec
-export ASDF_DATA_DIR=$ASDF_DIR
-. /opt/homebrew/opt/asdf/asdf.sh
-
 # Paths
 # TODO: Figure out what the right asdf path is
 export PATH=$ASDF_DIR/bin:$ASDF_DIR/shims:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
