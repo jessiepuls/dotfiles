@@ -14,5 +14,5 @@ jobs:
           echo "Creating a fake ssh key so that step gets skipped in the process"
           mkdir -p ~/.ssh
           touch ~/.ssh/id_rsa_github
-          echo "Running Install Script"
+          echo "Running Install Script in $(pwd)"
           echo | ./install.sh
