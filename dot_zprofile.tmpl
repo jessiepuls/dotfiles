@@ -36,13 +36,6 @@ export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
 export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
 export HOMEBREW_BUNDLE_NO_LOCK=true
 
-# Paths
-# TODO: Figure out what the right asdf path is
-export PATH=$ASDF_DIR/bin:$ASDF_DIR/shims:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
-export PATH=$HOME/.asdf/shims:$PATH
-export FPATH=$ASDF_DIR/completions:$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
-export MANPATH=/usr/local/share/man:/usr/X11/share/man:/usr/share/man:$MANPATH:$PATH
-
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -56,3 +49,5 @@ export PLAYDATE_SDK_PATH=$HOME/Developer/PlaydateSDK
 
 # Add home bin to path
 export PATH="$HOME/bin:$PATH"
+
+. $(brew --prefix asdf)/libexec/asdf.sh
