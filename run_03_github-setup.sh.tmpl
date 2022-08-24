@@ -2,13 +2,13 @@
 
 if [[ -n $CI ]]
 then 
-    echo "Skipping github setup for CI"
+    echo "\n🚫 Skipping github setup for CI\n"
     exit 0
 fi 
 
 FILE=~/.ssh/id_rsa_github
 if [ ! -f "$FILE" ]; then
-    echo "💻 Setting up ssh key for github"
+    echo "\n💻 Setting up ssh key for github\n"
 
     # create an ssh key
     ssh-keygen -f $FILE -q -N ""

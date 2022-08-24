@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -18,7 +18,7 @@ declare -a to_install=(
 
 declare -a installed=`code --list-extensions`
 
-echo "Installing VSCode Extensions"
+echo "\n💻 Installing VSCode Extensions\n"
 for i in "${to_install[@]}"
 do
     if [[ ! ${installed[*]} =~ ${i} ]]; then
