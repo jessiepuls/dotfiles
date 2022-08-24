@@ -1,0 +1,47 @@
+#!/bin/sh
+
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+
+
+declare -a to_install=(
+    "golang.go"
+    "eamodio.gitlens"
+    "iliazeus.vscode-ansi"
+    "hashicorp.terraform"
+    "ms-azuretools.vscode-docker"
+    "ms-python.python"
+    "ms-vscode-remote.remote-containers"
+    "ms-vscode-remote.remote-ssh"
+    "WakaTime.vscode-wakatime"
+)
+
+declare -a installed=`code --list-extensions`
+
+echo "\n💻 Installing VSCode Extensions\n"
+for i in "${to_install[@]}"
+do
+    if [[ ! ${installed[*]} =~ ${i} ]]; then
+        printf "${GREEN}Installing ${i}\n"
+        code --install-extension $i
+    fi
+
+    if [[ ${installed[*]} =~ ${i} ]]; then
+        printf "${YELLOW}${i} previously installed\n"
+    fi
+done
+
+echo "\n🦄 Installing golang packages\n"
+
+go install -v github.com/stamblerre/gocode@latest
+go install -v github.com/ramya-rao-a/go-outline@latest
+go install -v golang.org/x/tools/cmd/goimports@latest
+go install -v golang.org/x/tools/gopls@latest
+
+echo "\n🦄 Creating code directory structure\n"
+
+# Make source code directories
+echo "\n🗂  Creating code directory structure\n"
+mkdir -p ~/code/td
+mkdir -p ~/code/personal
+mkdir -p ~/code/mode
