@@ -2,7 +2,7 @@
 
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
-
+RESET='\033[0m'
 
 declare -a to_install=(
     "golang.go"
@@ -22,12 +22,12 @@ echo "\n💻 Installing VSCode Extensions\n"
 for i in "${to_install[@]}"
 do
     if [[ ! ${installed[*]} =~ ${i} ]]; then
-        printf "${GREEN}Installing ${i}\n"
+        printf "${GREEN}Installing ${i}${RESET}\n"
         code --install-extension $i
     fi
 
     if [[ ${installed[*]} =~ ${i} ]]; then
-        printf "${YELLOW}${i} previously installed\n"
+        printf "${YELLOW}${i} previously installed${RESET}\n"
     fi
 done
 
