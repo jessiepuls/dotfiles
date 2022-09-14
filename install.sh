@@ -21,6 +21,8 @@ else
   chezmoi=chezmoi
 fi
 
+echo "pwd=$(pwd)"
+
 echo "chezmoi=$chezmoi"
 
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
