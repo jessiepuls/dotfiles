@@ -32,3 +32,13 @@ asdf install
 echo "\n🐍 Installing pip packages\n"
 pip install --upgrade pip
 pip install terraform-local --upgrade
+pip install awscli-local --upgrade
+
+echo "\n🌹 Installing rosetta\n"
+softwareupdate --install-rosetta --agree-to-license
+
+# NPM packages
+
+echo "\n🔥 Installing npm packages\n"
+npm install -g doctoc
+npm install -g dynamodb-admin
