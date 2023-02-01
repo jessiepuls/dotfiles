@@ -1,0 +1,10 @@
+{
+    "git.autofetch": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "go.toolsManagement.autoUpdate": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terraform.experimentalFeatures.prefillRequiredFields": true,
+    "terraform.experimentalFeatures.validateOnSave": true,
+    "editor.formatOnSave": true,
+    "terminal.integrated.scrollback": 10000
+}
