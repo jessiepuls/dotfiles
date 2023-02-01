@@ -4,15 +4,25 @@ if [[ -n $CI ]]
 then 
     echo "\n🚫 Skipping github setup for CI\n"
     exit 0
-fi 
+fi
 
-FILE=~/.ssh/id_rsa_github
-if [ ! -f "$FILE" ]; then
-    echo "\n💻 Setting up ssh key for github\n"
+generate_keyfile ()
+{
+    local SERVICE=$1
+    local FILE="$HOME/.ssh/id_rsa_$SERVICE"
 
-    # create an ssh key
-    ssh-keygen -f $FILE -q -N ""
+    if [ ! -f "$FILE" ]; then
+        echo "\n💻 Setting up ssh key for $SERVICE\n"
+        ssh-keygen -f $FILE -q -N ""
+    fi
+}
 
+generate_keyfile github
+generate_keyfile gitlab
+
+ssh git@github.com
+RESULT=$?
+if [ $RESULT -eq 0 ]; then
     # sign into github
     gh auth login -s admin:public_key --web
 
@@ -25,4 +35,6 @@ if [ ! -f "$FILE" ]; then
 
     # push key into github and prompt for a name
     gh ssh-key add $FILE.pub --title $key_name
+else
+    echo "Github key already imported"
 fi
