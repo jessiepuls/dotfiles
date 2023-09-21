@@ -2,6 +2,10 @@ Host github.com
    UseKeychain yes
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_github
+Host gitlab.com
+   UseKeychain yes
+   AddKeysToAgent yes
+   IdentityFile ~/.ssh/id_rsa_gitlab
  Host *
    UseKeychain yes
    AddKeysToAgent yes
