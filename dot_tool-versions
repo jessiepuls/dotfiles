@@ -2,3 +2,5 @@ terragrunt 0.44.5
 terraform 1.3.9 1.5.7
 nodejs 16.14.0
 java zulu-jre-8.60.0.21
+kubectl 1.27
+helm 3.12
