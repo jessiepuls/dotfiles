@@ -73,7 +73,7 @@ RPROMPT="${AWS_PROFILE}"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, aws)
+plugins=(git aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +102,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# source plugin configs
+source ~/.oh-my-zsh/plugins/git/git.plugin.zsh
+source ~/.oh-my-zsh/plugins/aws/aws.plugin.zsh
+
+# NIX shell hooks
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+eval "$(direnv hook zsh)"
