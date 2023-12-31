@@ -1,0 +1,23 @@
+#!/bin/bash
+echo -e "\n🦄 Nix setup\n"
+
+if ! command -v nix &> /dev/null
+then
+    # install nix
+    sh <(curl -L https://nixos.org/nix/install) --yes
+
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+    source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+
+    # install cachix with flakes
+    nix profile install nixpkgs#cachix
+    cachix use devenv
+
+    # install devenv
+    nix profile install --accept-flake-config github:cachix/devenv/latest
+
+    # install direnv
+    nix profile install nixpkgs#direnv
+else
+    echo -e "\n🤙 Nix already installed\n"
+fi
