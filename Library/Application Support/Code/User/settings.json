@@ -11,5 +11,6 @@
         "editor.formatOnType": true
     },
     "githubPullRequests.terminalLinksHandler": "github",
-    "githubPullRequests.createOnPublishBranch": "never"
+    "githubPullRequests.createOnPublishBranch": "never",
+    "git.confirmSync": false
 }
