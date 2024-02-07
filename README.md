@@ -12,7 +12,7 @@ Managed with [Chezmoi](https://github.com/twpayne/chezmoi)
 There are a couple of options for running the install. If you haven't already installed Chezmoi you can do an all in one install/bootstrap by running the following:
 
 ```bash
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply <github-username>
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply jessiepuls
 ```
 
 If you've already bootstrapped, and just want to apply again you can run:

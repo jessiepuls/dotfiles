@@ -6,5 +6,10 @@
     "terraform.experimentalFeatures.prefillRequiredFields": true,
     "terraform.experimentalFeatures.validateOnSave": true,
     "editor.formatOnSave": true,
-    "terminal.integrated.scrollback": 10000
+    "terminal.integrated.scrollback": 10000,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "githubPullRequests.terminalLinksHandler": "github",
+    "githubPullRequests.createOnPublishBranch": "never"
 }
