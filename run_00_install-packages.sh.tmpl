@@ -7,6 +7,7 @@ then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "🍺  Adding to shell"
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
 fi
 
 # Install brew bundles
