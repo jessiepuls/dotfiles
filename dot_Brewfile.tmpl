@@ -32,37 +32,27 @@ brew "zsh"
 
 cask "1password"
 cask "1password-cli"
+cask "alfred"
 cask "bartender"
-cask "dbeaver-community"
 cask "discord"
 cask "docker"
 cask "dropbox"
 cask "fantastical"
 cask "google-chrome"
 cask "handbrake"
-cask "lastpass"
-cask "microsoft-outlook"
-cask "microsoft-teams"
 cask "notion"
 cask "obsidian"
 cask "qflipper"
 cask "session-manager-plugin"
+cask "slack"
 cask "spotify"
-cask "tailscale"
 cask "todoist"
-cask "toggl-track"
-cask "tuple"
 cask "visual-studio-code"
-cask "zoom"
 
 {{/* we're going to skip mas installed apps in CI rather than sign into the app store */}}
 {{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
-mas "Alfred",         id: 405843582
-{{/* mas "GoodNotes",      id: 1444383602 */}}
 mas "Pixelmator Pro", id: 1289583905
-mas "Slack",          id: 803453959
 mas "Trello",         id: 1278508951
-mas "Tweetbot",       id: 1384080005
 {{ end }}
 
 vscode "GitLab.gitlab-workflow"
