@@ -106,8 +106,3 @@ source $ZSH/oh-my-zsh.sh
 # source plugin configs
 source ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 source ~/.oh-my-zsh/plugins/aws/aws.plugin.zsh
-
-# NIX shell hooks
-source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-eval "$(direnv hook zsh)"
