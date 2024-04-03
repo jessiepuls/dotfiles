@@ -27,9 +27,18 @@ RESULT=$?
 if [ $RESULT -eq 1 ]; then
     echo "Successfully authenticated to github"
 elif [ $RESULT -eq 255 ]; then
-    # set preferred protocol 
+    echo "Setting preferred protocol to ssh"
     gh config set git_protocol ssh --host github.com
-    
+
+    echo "Setting preferred editor to vim"
+    gh config set editor vim
+
+    echo "Disabling prompts"
+    gh config set prompt disabled
+
+    echo "Setting editor to vscode"
+    gh config set editor "code --wait"
+
     # sign into github
     gh auth login -s admin:public_key --web
 
