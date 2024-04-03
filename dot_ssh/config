@@ -1,12 +1,18 @@
 Host github.com
+   {{ if eq .chezmoi.os "darwin" }}
    UseKeychain yes
+   {{ end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_github
 Host gitlab.com
+   {{ if eq .chezmoi.os "darwin" }}
    UseKeychain yes
+   {{ end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_gitlab
  Host *
+   {{ if eq .chezmoi.os "darwin" }}
    UseKeychain yes
+   {{ end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa
