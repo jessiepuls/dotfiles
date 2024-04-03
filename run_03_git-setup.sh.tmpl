@@ -14,6 +14,8 @@ generate_keyfile ()
     if [ ! -f "$FILE" ]; then
         echo "💻 Setting up ssh key for $SERVICE"
         ssh-keygen -f $FILE -q -N ""
+    else
+       echo "💻 Key has already been genrated for $SERVICE and can be found at $FILE"
     fi
 }
 
@@ -22,7 +24,9 @@ generate_keyfile gitlab
 
 ssh git@github.com
 RESULT=$?
-if [ $RESULT -eq 0 ]; then
+if [ $RESULT -eq 1 ]; then
+    echo "Successfully authenticated to github"
+elif [ $RESULT -eq 255 ]; then
     # sign into github
     gh auth login -s admin:public_key --web
 
@@ -36,5 +40,5 @@ if [ $RESULT -eq 0 ]; then
     # push key into github and prompt for a name
     gh ssh-key add $FILE.pub --title $key_name
 else
-    echo "Github key already imported"
+    echo "⁉️ Unknown exit code ($RESULT) while attempting to connect to github"
 fi
