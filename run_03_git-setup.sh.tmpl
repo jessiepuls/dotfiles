@@ -6,10 +6,15 @@ then
     exit 0
 fi
 
-generate_keyfile ()
+get_keyfile_name ()
 {
     local SERVICE=$1
-    local FILE="$HOME/.ssh/id_rsa_$SERVICE"
+    echo "$HOME/.ssh/id_rsa_$SERVICE"
+}
+
+generate_keyfile ()
+{
+    local FILE=$(get_keyfile_name $1)
 
     if [ ! -f "$FILE" ]; then
         echo "💻 Setting up ssh key for $SERVICE"
@@ -50,6 +55,7 @@ elif [ $RESULT -eq 255 ]; then
     fi
 
     # push key into github and prompt for a name
+    FILE=$(get_keyfile_name github)
     gh ssh-key add $FILE.pub --title $key_name
 else
     echo "⁉️ Unknown exit code ($RESULT) while attempting to connect to github"
