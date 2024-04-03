@@ -2,7 +2,7 @@
 
 if [[ -n $CI ]]
 then 
-    echo "\n🚫 Skipping github setup for CI\n"
+    echo "🚫 Skipping github setup for CI"
     exit 0
 fi
 
@@ -12,7 +12,7 @@ generate_keyfile ()
     local FILE="$HOME/.ssh/id_rsa_$SERVICE"
 
     if [ ! -f "$FILE" ]; then
-        echo "\n💻 Setting up ssh key for $SERVICE\n"
+        echo "💻 Setting up ssh key for $SERVICE"
         ssh-keygen -f $FILE -q -N ""
     fi
 }

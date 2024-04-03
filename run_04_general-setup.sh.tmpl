@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "\n🤠 Doing the things that don't fit in anywhere else\n"
+echo "🤠 Doing the things that don't fit in anywhere else"
 
 locate test > /dev/null 2>&1
 if [ $? -eq 0 ] 
 then
-    echo "\n🤙 Locate all setup"
+    echo "🤙 Locate all setup"
 else
-    echo "\n🔍 Building the locate database\n"
+    echo "🔍 Building the locate database"
     sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
 fi
