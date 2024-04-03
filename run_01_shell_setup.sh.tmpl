@@ -1,4 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-[[ -d ~/.oh-my-zsh ]] && echo "\n🐢 oh-my-zsh already installed...moving on\n" || \
-  (echo '\n🐢  Installing oh-my-zsh\n' && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
+
+# Install Homebrew
+if test -d ~/.oh-my-zsh; then
+  echo "\n🐢 oh-my-zsh already installed...moving on\n"
+else
+  echo '\n🐢  Installing oh-my-zsh\n' 
+  RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/subtlepseudonym/oh-my-zsh/feature/install-noninteractive/tools/install.sh)"
+
+fi
