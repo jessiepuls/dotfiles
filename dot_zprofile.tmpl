@@ -23,7 +23,7 @@ export XDG_VIDEOS_DIR="$HOME/Videos"
 {{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- else }}
-eval "$(~/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{- end }}
 
 # Configure brew bundle
