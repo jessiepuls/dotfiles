@@ -2,6 +2,7 @@
 export RUNZSH=no
 
 if [[ -n $CI ]]; then 
+    echo "🚫 Setting CHSH=no for CI build"
     export CHSH=no
 fi
 
