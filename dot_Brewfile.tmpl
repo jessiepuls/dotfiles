@@ -7,12 +7,6 @@ brew "awscli"
 brew "golang"
 {{ end }}
 
-{{- /* Mac only packages */ -}}
-{{ if eq .chezmoi.os "darwin" }}
-cask "iterm2"
-brew "mas"
-{{ end }}
-
 brew "act"
 brew "asdf"
 brew "chezmoi"
@@ -20,6 +14,7 @@ brew "gh"
 brew "git"
 brew "jq"
 brew "localstack"
+brew "mas"
 brew "opentofu"
 brew "poetry"
 brew "saml2aws"
@@ -40,6 +35,7 @@ cask "dropbox"
 cask "fantastical"
 cask "google-chrome"
 cask "handbrake"
+cask "iterm2"
 cask "notion"
 cask "obsidian"
 cask "qflipper"
