@@ -14,4 +14,5 @@ jobs:
       - name: Run install script
         run: |
           echo "Running Install Script in $(pwd)"
-          echo | ./install.sh
+          branch=${{ github.head_ref || github.ref_name }} 
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jessiepuls --branch $branch
