@@ -5,9 +5,10 @@ if ! command -v brew &> /dev/null
 then
   echo '🍺  Installing Homebrew'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo "👩‍💻 Sourcing shell config to pull in paths"
-  source ~/.zprofile
 fi
+
+  echo "👩‍💻 Sourcing shell config to make sure paths are set up"
+  source ~/.zprofile
 
 # Install brew bundles
 echo "🍻 Installing homebrew packages"
