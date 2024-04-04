@@ -7,17 +7,13 @@
 
 [includeIf "gitdir:~/code/td/"]
     path = .gitconfig-td
-
-[includeIf "gitdir:~/code/mode/"]
-    path = .gitconfig-mode
-
-[includeIf "gitdir:~/code/github/"]
-    path = .gitconfig-td
 [pull]
-        rebase = false
+        rebase = true
 [fetch]
         prune = true
 [diff]
         colorMoved = zebra
 [core]
         excludesfile = ~/.gitignore
+[commit]
+        gpgsign = true
