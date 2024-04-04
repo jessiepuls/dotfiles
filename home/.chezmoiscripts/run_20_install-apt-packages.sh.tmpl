@@ -1,9 +1,9 @@
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu")) -}}
 #!/bin/bash
 
-packages_to_install=(gh zsh)
+packages_to_install=("gh", "zsh")
 
-for package in $packages_to_install; do
+for package in "${packages_to_install[@]}"; do
   sudo apt install -y $package
 done
 {{ end -}}
