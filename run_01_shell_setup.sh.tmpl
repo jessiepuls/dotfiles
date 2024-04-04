@@ -4,6 +4,9 @@ export RUNZSH=no
 if [[ -n $CI ]]; then 
     echo "🚫 Setting CHSH=no for CI build"
     export CHSH=no
+
+    echo "unsetting POSIXLY_CORRECT because github runner sets it"
+    unset POSIXLY_CORRECT
 fi
 
 # Install Homebrew
