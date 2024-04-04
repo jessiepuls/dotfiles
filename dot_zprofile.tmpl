@@ -20,16 +20,10 @@ export XDG_TEMPLATES_DIR="$HOME/Templates"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 {{- if eq .chezmoi.os "darwin" }}
-export HOMEBREW_PREFIX="/usr/local"
-export HOMEBREW_CELLAR="/usr/local/Cellar"
-export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- else }}
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
-export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+eval "$(~/.linuxbrew/bin/brew shellenv)"
 {{- end }}
 
 # Configure brew bundle
