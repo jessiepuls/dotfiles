@@ -13,8 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run install script
         run: |
-          echo "Creating a fake ssh key so that step gets skipped in the process"
-          mkdir -p ~/.ssh
-          touch ~/.ssh/id_rsa_github
           echo "Running Install Script in $(pwd)"
           echo | ./install.sh
