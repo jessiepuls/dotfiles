@@ -5,10 +5,14 @@ if ! command -v brew &> /dev/null
 then
   echo '🍺  Installing Homebrew'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
 
-echo "👩‍💻 Sourcing shell config to make sure paths are set up"
-source ~/.zprofile
+  echo "👩‍💻 Setting environment variables"
+  {{- if eq .chezmoi.os "darwin" }}
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  {{- else }}
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  {{- end }}
+fi
 
 # Install brew bundles
 echo "🍻 Installing homebrew packages"
