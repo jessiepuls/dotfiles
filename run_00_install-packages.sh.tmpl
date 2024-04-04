@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Setting environment variable for where brewfile can be found to make sure the script can find it
+export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
+
 # Install Homebrew
 if ! command -v brew &> /dev/null
 then
