@@ -4,9 +4,6 @@ export RUNZSH=no
 if [[ -n $CI ]]; then 
     echo "🚫 Setting CHSH=no for CI build"
     export CHSH=no
-
-    echo "unsetting POSIXLY_CORRECT because github runner sets it"
-    unset POSIXLY_CORRECT
 fi
 
 # Install Homebrew
@@ -14,5 +11,5 @@ if test -d ~/.oh-my-zsh; then
   echo "🐢 oh-my-zsh already installed...moving on"
 else
   echo '🐢  Installing oh-my-zsh'
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
