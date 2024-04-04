@@ -1,10 +1,14 @@
 #!/bin/bash
-export NO_INTERACTIVE=true
+export RUNZSH=no
+
+if [[ -n $CI ]]; then 
+    export CHSH=no
+fi
 
 # Install Homebrew
 if test -d ~/.oh-my-zsh; then
   echo "🐢 oh-my-zsh already installed...moving on"
 else
   echo '🐢  Installing oh-my-zsh'
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/subtlepseudonym/oh-my-zsh/feature/install-noninteractive/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
