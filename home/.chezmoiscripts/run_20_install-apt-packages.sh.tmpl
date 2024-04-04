@@ -1,0 +1,12 @@
+{{- if (eq .osid "linux-debian") -}}
+#!/bin/bash
+
+packages_to_install=(
+  gh
+  zsh
+)
+
+for package in $packages_to_install; do
+  echo "apt install -y $package"
+done
+{{ end -}}

@@ -1,8 +1,5 @@
-{{/* Need to do some special things inside of CI for mac */}}
-{{- $ci:= env "CI" | not | not -}}
-
 {{- /* The macos image for github actions has these packages preinstalled and it is dumb */ -}}
-{{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
+{{ if (and (eq .chezmoi.os "darwin") (not .ci)) }}
 brew "awscli"
 brew "golang"
 {{ end }}
@@ -46,7 +43,7 @@ cask "todoist"
 cask "visual-studio-code"
 
 {{/* we're going to skip mas installed apps in CI rather than sign into the app store */}}
-{{ if (and (eq .chezmoi.os "darwin") (not $ci)) }}
+{{ if (and (eq .chezmoi.os "darwin") (not .ci)) }}
 mas "Pixelmator Pro", id: 1289583905
 mas "Trello",         id: 1278508951
 {{ end }}
