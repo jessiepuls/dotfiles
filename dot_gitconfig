@@ -17,3 +17,5 @@
         excludesfile = ~/.gitignore
 [commit]
         gpgsign = true
+[gpg]
+        program = gpg
