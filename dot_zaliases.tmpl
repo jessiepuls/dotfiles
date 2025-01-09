@@ -4,5 +4,7 @@ alias pip=pip3
 alias python=python3
 
 # k8s
+alias suno-staging-update-kubeconfig="aws eks update-kubeconfig --name suno-eks-cluster --kubeconfig ~/suno-eks-cluster-staging.kube --region us-east-2"
 alias k9s-suno-staging="k9s --kubeconfig ~/suno-eks-cluster-staging.kube"
+
 alias k9s-suno-prod="k9s --kubeconfig ~/suno-eks-cluster-prod.kube"
