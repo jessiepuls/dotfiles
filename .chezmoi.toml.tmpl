@@ -5,4 +5,5 @@
 
 [data]
     osid = {{ $osid | quote }}
-    ci = {{- env "CI" | not | not -}}
+    ci = {{ env "CI" | not | not }}
+    profile = {{ env "PROFILE" | quote }}
