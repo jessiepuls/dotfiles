@@ -1,17 +1,21 @@
 {
-    "git.autofetch": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "go.toolsManagement.autoUpdate": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "terraform.experimentalFeatures.prefillRequiredFields": true,
-    "terraform.experimentalFeatures.validateOnSave": true,
-    "editor.formatOnSave": true,
-    "terminal.integrated.scrollback": 10000,
-    "[python]": {
-        "editor.formatOnType": true
-    },
-    "githubPullRequests.terminalLinksHandler": "github",
-    "githubPullRequests.createOnPublishBranch": "never",
-    "git.confirmSync": false,
-    "cloudcode.duetAI.project": ""
+  "git.autofetch": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "go.toolsManagement.autoUpdate": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terraform.experimentalFeatures.prefillRequiredFields": true,
+  "terraform.experimentalFeatures.validateOnSave": true,
+  "editor.formatOnSave": true,
+  "terminal.integrated.scrollback": 10000,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "githubPullRequests.terminalLinksHandler": "github",
+  "githubPullRequests.createOnPublishBranch": "never",
+  "git.confirmSync": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
 }
