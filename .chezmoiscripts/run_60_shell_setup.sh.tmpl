@@ -6,10 +6,14 @@ if [[ -n $CI ]]; then
     export CHSH=no
 fi
 
-# Install Homebrew
+# Install ohmyzsh
 if test -d ~/.oh-my-zsh; then
   echo "🐢 oh-my-zsh already installed...moving on"
 else
   echo '🐢  Installing oh-my-zsh'
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+# TODO: Generate id_rsa ssh key if it doesn't exist
+
+# TODO: Generate nas ssh key if it doesnt' exist

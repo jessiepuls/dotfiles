@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Insall Rails
+if ! command -v rails &> /dev/null; then
+    echo "Installing Rails"
+    sudo gem install rails
+else
+    echo "Rails is already installed"
+fi
