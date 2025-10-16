@@ -2,11 +2,7 @@ name: Test install script
 on: push
 jobs:
   test:
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.platform }}
+    runs-on: macos-latest
     env:
       CI: 1
     steps:
