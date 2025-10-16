@@ -12,5 +12,6 @@
     },
     "githubPullRequests.terminalLinksHandler": "github",
     "githubPullRequests.createOnPublishBranch": "never",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "cloudcode.duetAI.project": ""
 }
