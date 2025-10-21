@@ -2,3 +2,4 @@ install.sh
 {{- if eq .chezmoi.os "linux" }}
 .Brewfile
 {{- end }}
+CLAUDE.md
