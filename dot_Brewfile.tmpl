@@ -6,8 +6,7 @@ brew "golang"
 
 {{/* Things that should only be installed on my personal machine */}}
 {{ if (eq .profile "personal") }}
-brew "codex"
-brew "ffmpeg
+brew "ffmpeg"
 
 cask "calibre"
 cask "qflipper"
@@ -38,7 +37,7 @@ cask "todoist"
 
 {{/* Things I only need on a client machine */}}
 {{ if (eq .profile "client") }}
-
+cask "codex"
 {{ end }}
 
 {{/* Things that should be installed on all machines */}}
