@@ -25,6 +25,24 @@ echo "pwd=$(pwd)"
 
 echo "chezmoi=$chezmoi"
 
+# If profile env var isn't set, ask user
+if [ -z "${PROFILE:-}" ]; then
+  echo ""
+  echo "→ Please choose a profile to use:"
+  echo ""
+  select profile in "client" "td" "personal" "none"; do
+    case $profile in
+      client ) export PROFILE="client"; break;;
+      td ) export PROFILE="td"; break;;
+      personal ) export PROFILE="personal"; break;;
+      none ) export PROFILE=""; break;;
+      * ) echo "Invalid selection. Please try again.";;
+    esac
+  done
+fi
+
+echo "💡 Using profile: '${PROFILE:-none}'"
+
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 echo "script_dir=$script_dir"
