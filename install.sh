@@ -25,16 +25,16 @@ echo "pwd=$(pwd)"
 
 echo "chezmoi=$chezmoi"
 
-# If profile env var isn't set, ask user
-if [ -z "${PROFILE:-}" ]; then
+# If profile env var isn't set, ask user (skip in CI)
+if [ -z "${PROFILE:-}" ] && [ -z "${CI:-}" ]; then
   echo ""
   echo "→ Please choose a profile to use:"
   echo ""
   select profile in "client" "td" "personal" "none"; do
     case $profile in
-      client ) export PROFILE="client"; export PROFILE_WAS_SET_BY_SCRIPT="true"; break;;
-      td ) export PROFILE="td"; export PROFILE_WAS_SET_BY_SCRIPT="true"; break;;
-      personal ) export PROFILE="personal"; export PROFILE_WAS_SET_BY_SCRIPT="true"; break;;
+      client ) export PROFILE="client"; break;;
+      td ) export PROFILE="td"; break;;
+      personal ) export PROFILE="personal"; break;;
       none ) export PROFILE=""; break;;
       * ) echo "Invalid selection. Please try again.";;
     esac
@@ -43,9 +43,9 @@ fi
 
 echo "💡 Using profile: '${PROFILE:-none}'"
 
-# If a profile was selected during this run, ask if it should be added to ~/.zshenv
-# Only prompt if PROFILE was just set (not already in environment before script ran)
-if [ -n "${PROFILE:-}" ] && [ "${PROFILE_WAS_SET_BY_SCRIPT:-}" = "true" ]; then
+# If a profile is set, ask if it should be added to ~/.zshenv
+# (unless it's already correctly set there)
+if [ -n "${PROFILE:-}" ]; then
   zshenv_file="$HOME/.zshenv"
 
   # Check if PROFILE is already set in ~/.zshenv
