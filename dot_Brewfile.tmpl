@@ -25,7 +25,6 @@ brew "ansible"
 brew "k9s"
 brew "localstack"
 brew "pipx"
-brew "poetry"
 brew "spacelift-io/spacelift/spacectl"
 
 cask "alfred"
@@ -38,6 +37,10 @@ cask "todoist"
 {{/* Things I only need on a client machine */}}
 {{ if (eq .profile "client") }}
 cask "codex"
+cask "cursor"
+cask "cursor-cli"
+cask "anypointstudio"
+
 vscode "openai.chatgpt"
 {{ end }}
 
@@ -50,6 +53,7 @@ brew "jq"
 brew "mise"
 brew "node"
 brew "opentofu"
+brew "poetry"
 brew "telnet"
 brew "terraform-docs"
 brew "tflint"
