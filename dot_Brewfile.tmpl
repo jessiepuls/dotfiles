@@ -36,6 +36,8 @@ cask "todoist"
 
 {{/* Things I only need on a client machine */}}
 {{ if (eq .profile "client") }}
+brew "openjdk"
+
 cask "codex"
 cask "cursor"
 cask "cursor-cli"
@@ -69,6 +71,7 @@ cask "google-chrome"
 cask "iterm2"
 cask "notion"
 cask "obsidian"
+cask "qobuz"
 cask "session-manager-plugin"
 cask "slack"
 cask "visual-studio-code"
