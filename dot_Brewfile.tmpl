@@ -17,6 +17,7 @@ cask "steam"
 {{ if (or (eq .profile "personal") (eq .profile "td")) }}
 {{ if (and (eq .chezmoi.os "darwin") (not .ci)) }}
 brew "mas"
+cask "claude"
 mas "Paprika Recipe Manager 3", id: 1303222628
 {{ end }}
 
