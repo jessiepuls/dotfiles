@@ -16,8 +16,10 @@ cask "steam"
 {{/* Things that should be installed on a personal or td machine */}}
 {{ if (or (eq .profile "personal") (eq .profile "td")) }}
 {{ if (and (eq .chezmoi.os "darwin") (not .ci)) }}
+brew "pi-coding-agent"
 brew "mas"
 cask "claude"
+cask "granola"
 mas "Paprika Recipe Manager 3", id: 1303222628
 {{ end }}
 
@@ -77,6 +79,7 @@ cask "session-manager-plugin"
 cask "slack"
 cask "visual-studio-code"
 
+vscode "anthropic.claude-code"
 vscode "GitLab.gitlab-workflow"
 vscode "GitHub.copilot"
 vscode "GitHub.copilot-chat"
@@ -91,6 +94,7 @@ vscode "iliazeus.vscode-ansi"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.python"
+vscode "ms-vscode.makefile-tools"
 vscode "vscjava.vscode-java-pack"
 vscode "vscode-ext.sync-rsync"
 vscode "WakaTime.vscode-wakatime"
