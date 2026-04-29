@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -n $CI ]]; then
+    echo "🚫 Skipping python tool installs in CI"
+    exit 0
+fi
+
+# Install or update cog (https://github.com/jessiepuls/cog/)
+if uv tool list 2>/dev/null | grep -q '^cog '; then
+    echo "🔄 Updating cog"
+    uv tool upgrade cog
+else
+    echo "📦 Installing cog"
+    uv tool install git+https://github.com/jessiepuls/cog.git
+fi
