@@ -23,30 +23,18 @@ cask "granola"
 mas "Paprika Recipe Manager 3", id: 1303222628
 {{ end }}
 
-brew "act"
-brew "ansible"
-brew "k9s"
-brew "localstack"
 brew "pipx"
-brew "spacelift-io/spacelift/spacectl"
 
 cask "alfred"
 cask "discord"
 cask "gcloud-cli"
 cask "spotify"
-cask "todoist"
+cask "todoist-app"
 {{ end }}
 
 {{/* Things I only need on a client machine */}}
 {{ if (eq .profile "client") }}
-brew "openjdk"
 
-cask "codex"
-cask "cursor"
-cask "cursor-cli"
-cask "anypointstudio"
-
-vscode "openai.chatgpt"
 {{ end }}
 
 {{/* Things that should be installed on all machines */}}
@@ -54,8 +42,11 @@ brew "chezmoi"
 brew "gh"
 brew "git"
 brew "gpg"
+brew "glab"
 brew "jq"
+brew "mermaid-cli"
 brew "mise"
+brew "neovim"
 brew "node"
 brew "opentofu"
 brew "poetry"
@@ -69,6 +60,9 @@ cask "1password"
 cask "1password-cli"
 cask "bartender"
 cask "claude-code"
+cask "codex"
+cask "cursor"
+cask "cursor-cli"
 cask "docker-desktop"
 cask "fantastical"
 cask "google-chrome"
@@ -81,6 +75,7 @@ cask "slack"
 cask "visual-studio-code"
 
 vscode "anthropic.claude-code"
+vscode "bierner.markdown-mermaid"
 vscode "GitLab.gitlab-workflow"
 vscode "GitHub.vscode-github-actions"
 vscode "golang.go"
