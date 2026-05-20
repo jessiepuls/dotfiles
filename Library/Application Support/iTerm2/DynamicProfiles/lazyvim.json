@@ -4,8 +4,8 @@
       "Name": "LazyVim",
       "Guid": "lazyvim-meslo-nerd-font",
       "Dynamic Profile Parent Name": "Default",
-      "Normal Font": "MesloLGMNerdFontMono-Regular 13",
-      "Non Ascii Font": "MesloLGMNerdFontMono-Regular 13",
+      "Normal Font": "MesloLGMNF-Regular 13",
+      "Non Ascii Font": "MesloLGMNF-Regular 13",
       "Use Non-ASCII Font": false,
       "ASCII Anti Aliased": true,
       "Non-ASCII Anti Aliased": true
