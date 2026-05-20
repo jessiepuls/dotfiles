@@ -1,0 +1,11 @@
+{{- if (and (or (eq .profile "personal") (eq .profile "td")) (eq .chezmoi.os "darwin") (not .ci)) -}}
+#!/bin/bash
+set -euo pipefail
+
+if ! command -v pi >/dev/null 2>&1; then
+  echo "pi command not found, skipping pi extensions install" >&2
+  exit 0
+fi
+
+pi install npm:@netandreus/pi-cursor-provider
+{{ end -}}
