@@ -1,5 +1,6 @@
 {{- if (eq .chezmoi.os "darwin") -}}
   #!/bin/bash
+  set -euo pipefail
 
   # Setting environment variable for where brewfile can be found to make sure the script can find it
   export HOMEBREW_BUNDLE_FILE=$HOME/.Brewfile
@@ -20,5 +21,11 @@
   # Install brew bundles
   echo "🍻 Installing homebrew packages"
   brew bundle install
+
+  # Verify every brewfile entry actually installed; brew bundle install can exit
+  # 0 even when individual installs fail (e.g. a missing tap formula prints a
+  # warning but doesn't propagate). Fail loudly here.
+  brew bundle check --verbose
+
   brew bundle --force cleanup
 {{ end -}}
