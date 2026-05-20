@@ -14,6 +14,9 @@
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 
+  # Refresh tap metadata so brew bundle sees current cask versions
+  brew update
+
   # Install brew bundles
   echo "🍻 Installing homebrew packages"
   brew bundle install
