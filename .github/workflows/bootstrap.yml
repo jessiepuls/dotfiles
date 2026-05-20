@@ -1,4 +1,4 @@
-name: Test install script
+name: Test bootstrap
 on: push
 jobs:
   test:
@@ -7,8 +7,8 @@ jobs:
       CI: 1
     steps:
       - uses: actions/checkout@v2
-      - name: Run install script
+      - name: Bootstrap chezmoi
         run: |
-          echo "Running Install Script in $(pwd)"
-          branch=${{ github.head_ref || github.ref_name }} 
+          echo "Bootstrapping chezmoi in $(pwd)"
+          branch=${{ github.head_ref || github.ref_name }}
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jessiepuls --branch $branch
