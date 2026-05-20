@@ -3,3 +3,4 @@ install.sh
 .Brewfile
 {{- end }}
 CLAUDE.md
+README.md
