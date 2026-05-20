@@ -28,10 +28,7 @@ chezmoi cd
 
 ### Testing
 ```bash
-# Run the install script directly (from chezmoi source directory)
-./install.sh
-
-# The CI/CD workflow tests installation on macOS
+# The CI/CD workflow tests installation on macOS via the chezmoi.io bootstrap
 # See .github/workflows/install.yml
 ```
 
@@ -43,7 +40,7 @@ Files use Chezmoi's Go template syntax with the following key variables:
 
 - `.chezmoi.os` - Operating system (darwin, linux)
 - `.chezmoi.osRelease.id` - OS distribution ID
-- `.profile` - Profile type (personal, td, client) set via `PROFILE` env var
+- `.profile` - Profile type (personal, td, client, none) prompted by `.chezmoi.toml.tmpl` at `chezmoi init` and stored in `~/.config/chezmoi/chezmoi.toml`
 - `.ci` - Boolean indicating CI environment
 
 Template files use naming conventions:

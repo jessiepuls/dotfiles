@@ -3,7 +3,12 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+{{- $profile := "" -}}
+{{- if not (env "CI") -}}
+{{-   $profile = promptChoiceOnce . "profile" "Machine type" (list "personal" "td" "client" "none") -}}
+{{- end -}}
+
 [data]
     osid = {{ $osid | quote }}
     ci = {{ env "CI" | not | not }}
-    profile = {{ env "PROFILE" | quote }}
+    profile = {{ $profile | quote }}
