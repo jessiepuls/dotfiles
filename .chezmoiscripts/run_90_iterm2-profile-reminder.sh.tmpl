@@ -1,0 +1,19 @@
+{{- if (and (eq .chezmoi.os "darwin") (not .ci)) -}}
+#!/bin/bash
+
+profile_guid="lazyvim-meslo-nerd-font"
+current_default=$(defaults read com.googlecode.iterm2 "Default Bookmark Guid" 2>/dev/null || echo "")
+
+if [[ "$current_default" != "$profile_guid" ]]; then
+  cat <<'EOF'
+
+==========================================================================
+iTerm2: The "LazyVim" dynamic profile is available but not set as default.
+To make it your default profile:
+  iTerm2 -> Settings -> Profiles -> select "LazyVim"
+  -> Other Actions (gear icon) -> Set as Default
+==========================================================================
+
+EOF
+fi
+{{ end -}}
