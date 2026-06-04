@@ -1,0 +1,12 @@
+{{- /* Install Cursor Agent CLI via Cursor's official installer. The homebrew
+       `cursor-cli` cask ships a broken/unsigned build; use the official one. */ -}}
+{{ if (and (eq .chezmoi.os "darwin") (eq .profile "td") (not .ci)) -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ -x "$HOME/.local/bin/agent" ]]; then
+    exit 0
+fi
+
+curl https://cursor.com/install -fsS | bash
+{{ end -}}
