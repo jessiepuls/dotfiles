@@ -27,13 +27,26 @@ chezmoi update  # pull and apply changes
 
 This repository supports configuration profiles that customize package installation:
 
-- **personal** — Personal machine with entertainment and personal productivity apps (calibre, qflipper, steam, codex, ffmpeg)
-- **td** — Work/development machine with professional tooling (ansible, k9s, localstack, poetry, alfred, spotify, discord, gcloud-cli, todoist)
-- **client** — Reserved for client-specific machine configuration
+- **personal** — Personal-only additions on top of the shared set (ffmpeg, calibre, qflipper, steam)
+- **td** — No td-only packages; shares the `personal | td` set below
+- **client** — Reserved for client-specific machine configuration (currently empty)
 - **none** — Base packages only
 
-All profiles include the core set of tools (chezmoi, git, docker, vscode, 1password, etc.).
+Packages shared by **personal** and **td**: pi-coding-agent, mas, Claude desktop, Paprika, pipx, alfred, discord, gcloud-cli, spotify, todoist.
+
+All profiles include the core set of tools (chezmoi, git, gh, neovim, mise, docker-desktop, vscode, cursor, claude-code, codex, cmux, 1password, etc. — see `dot_Brewfile.tmpl` for the full list).
 
 On first `chezmoi init`, chezmoi prompts you to pick a profile and stores the choice in `~/.config/chezmoi/chezmoi.toml`. Subsequent runs reuse that choice without re-prompting.
 
 To change the profile later, edit `~/.config/chezmoi/chezmoi.toml` directly or re-run `chezmoi init` after deleting the `profile` line.
+
+## Managed configs
+
+In addition to top-level dotfiles (`~/.zshrc`, `~/.gitconfig`, etc.), this repo manages:
+
+- `~/.config/cmux/cmux.json` — cmux workspace layout and commands
+- `~/.config/nvim/` — Neovim configuration
+- `~/.Brewfile` — Homebrew bundle (templated by profile and OS)
+- `~/.tool-versions` — mise-managed tool versions (terraform, opentofu, terragrunt, terraform-docs)
+
+Edits to these live files will be overwritten on the next `chezmoi apply`. Edit the source files in this repo instead (or use `chezmoi edit <path>`).
