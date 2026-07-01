@@ -6,9 +6,6 @@ brew "golang"
 
 {{/* Things that should only be installed on my personal machine */}}
 {{ if (eq .profile "personal") }}
-brew "ffmpeg"
-
-cask "calibre"
 cask "qflipper"
 cask "steam"
 {{ end }}
@@ -26,7 +23,6 @@ brew "pipx"
 
 cask "alfred"
 cask "discord"
-cask "gcloud-cli"
 cask "todoist-app"
 {{ end }}
 
@@ -52,7 +48,6 @@ brew "opentofu"
 brew "poetry"
 brew "telnet"
 brew "terraform-docs"
-cask "terraform-linters/tap/tflint"
 brew "uv"
 brew "yq"
 
