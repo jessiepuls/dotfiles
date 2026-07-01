@@ -12,20 +12,25 @@ get_keyfile_name ()
     echo "$HOME/.ssh/id_rsa_$SERVICE"
 }
 
-generate_keyfile ()
+generate_key_at ()
 {
-    local FILE=$(get_keyfile_name $1)
+    local FILE=$1
+    local LABEL=$2
 
     if [ ! -f "$FILE" ]; then
-        echo "💻 Setting up ssh key for $SERVICE"
-        ssh-keygen -f $FILE -q -N ""
+        echo "💻 Setting up ssh key for $LABEL"
+        ssh-keygen -f "$FILE" -q -N ""
+        echo "📋 Public key (add to $LABEL): $FILE.pub"
     else
-       echo "💻 Key has already been genrated for $SERVICE and can be found at $FILE"
+        echo "💻 Key for $LABEL already exists at $FILE"
     fi
 }
 
-generate_keyfile github
-generate_keyfile gitlab
+generate_key_at "$(get_keyfile_name github)" github
+generate_key_at "$(get_keyfile_name gitlab)" gitlab
+{{ range $id := .git_identities }}
+generate_key_at "$HOME/.ssh/{{ $id.key }}" "{{ $id.alias }} ({{ $id.host }})"
+{{- end }}
 
 ssh git@github.com
 RESULT=$?

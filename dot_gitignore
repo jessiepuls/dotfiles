@@ -2,3 +2,4 @@
 .vscode-upload.json
 .vscode/*
 .artifacts/*
+**/.claude/settings.local.json

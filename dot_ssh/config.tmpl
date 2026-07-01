@@ -1,24 +1,38 @@
 Host github.com
-   {{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
    UseKeychain yes
-   {{ end }}
+{{- end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_github
+   IdentitiesOnly yes
+
 Host gitlab.com
-   {{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
    UseKeychain yes
-   {{ end }}
+{{- end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_gitlab
+   IdentitiesOnly yes
+
 Host nas.local
-   {{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
    UseKeychain yes
-   {{ end }}
+{{- end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa_nas
- Host *
-   {{ if eq .chezmoi.os "darwin" }}
+{{ range $id := .git_identities }}
+Host {{ $id.alias }}
+   HostName {{ $id.host }}
+{{- if eq $.chezmoi.os "darwin" }}
    UseKeychain yes
-   {{ end }}
+{{- end }}
+   AddKeysToAgent yes
+   IdentityFile ~/.ssh/{{ $id.key }}
+   IdentitiesOnly yes
+{{ end }}
+Host *
+{{- if eq .chezmoi.os "darwin" }}
+   UseKeychain yes
+{{- end }}
    AddKeysToAgent yes
    IdentityFile ~/.ssh/id_rsa
