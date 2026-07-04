@@ -12,15 +12,20 @@ Managed with [Chezmoi](https://github.com/twpayne/chezmoi)
 Fresh machine (installs chezmoi, clones this repo, applies):
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jessiepuls
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$(mktemp -d)" init --apply jessiepuls
 ```
+
+`-b "$(mktemp -d)"` installs the bootstrap chezmoi into a throwaway dir so it runs
+once and is discarded. Homebrew installs the persistent copy during `chezmoi apply`
+and owns updates from then on — this avoids a stale standalone binary shadowing the
+Homebrew one on `PATH`.
 
 Already bootstrapped:
 
 ```bash
-chezmoi upgrade # Upgrade chezmoi to the latest version
-chezmoi apply   # apply changes without pulling updates
-chezmoi update  # pull and apply changes
+brew upgrade chezmoi # Upgrade chezmoi (Homebrew owns it)
+chezmoi apply        # apply changes without pulling updates
+chezmoi update       # pull and apply changes
 ```
 
 ## Profiles
