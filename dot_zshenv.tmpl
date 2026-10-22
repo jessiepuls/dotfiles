@@ -1,0 +1,13 @@
+# Make Nix and user-profile tools available in every zsh invocation.
+# ~/.nix-profile points to ~/.local/state/nix/profiles/profile on this machine.
+if [[ -x /nix/var/nix/profiles/default/bin/nix ]]; then
+    for nix_bin in /nix/var/nix/profiles/default/bin "$HOME/.nix-profile/bin"; do
+        if [[ -d "$nix_bin" ]]; then
+            case ":$PATH:" in
+                *":$nix_bin:"*) ;;
+                *) export PATH="$nix_bin:$PATH" ;;
+            esac
+        fi
+    done
+    unset nix_bin
+fi
