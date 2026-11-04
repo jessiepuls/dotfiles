@@ -7,5 +7,9 @@ if command -v plannotator >/dev/null 2>&1 || [[ -x "$HOME/.local/bin/plannotator
 fi
 
 # Install the CLI without changing agent hooks, skills, or configuration.
-curl -fsSL https://plannotator.ai/install.sh | bash -s -- --minimal
+# Download first: the installer can exit before consuming all of a piped script.
+installer=$(mktemp)
+trap 'rm -f "$installer"' EXIT
+curl -fsSL https://plannotator.ai/install.sh -o "$installer"
+bash "$installer" --minimal
 {{ end -}}
