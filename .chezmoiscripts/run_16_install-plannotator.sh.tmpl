@@ -1,0 +1,11 @@
+{{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+if command -v plannotator >/dev/null 2>&1 || [[ -x "$HOME/.local/bin/plannotator" ]]; then
+    exit 0
+fi
+
+# Install the CLI without changing agent hooks, skills, or configuration.
+curl -fsSL https://plannotator.ai/install.sh | bash -s -- --minimal
+{{ end -}}

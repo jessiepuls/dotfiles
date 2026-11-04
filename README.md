@@ -44,13 +44,18 @@ This repository supports configuration profiles that customize package installat
 
 Packages shared by **personal** and **td**: pi-coding-agent, mas, Claude desktop, Paprika, pipx, alfred, discord, gcloud-cli, spotify, todoist.
 
-All profiles include the core set of tools (chezmoi, git, gh, neovim, mise, docker-desktop, vscode, cursor, claude-code, codex, cmux, 1password, etc. — see `dot_Brewfile.tmpl` for the full list).
+All profiles include the core set of tools (chezmoi, git, gh, neovim, mise, docker-desktop, vscode, claude-code, codex, cmux, 1password, etc. — see `dot_Brewfile.tmpl` for the full list).
 
 On first `chezmoi init`, chezmoi prompts you to pick a profile and stores the choice in `~/.config/chezmoi/chezmoi.toml`. Subsequent runs reuse that choice without re-prompting.
 
 To change the profile later, edit `~/.config/chezmoi/chezmoi.toml` directly or re-run `chezmoi init` after deleting the `profile` line.
 
 ## Managed configs
+
+Setup also installs [Plannotator](https://github.com/backnotprop/plannotator) to
+`~/.local/bin` on macOS and Linux for all profiles. It skips installation when the
+binary is already available. Agent hooks and skills are configured separately;
+see the project's installation guide for your agent.
 
 In addition to top-level dotfiles (`~/.zshrc`, `~/.gitconfig`, etc.), this repo manages:
 
