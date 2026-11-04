@@ -27,5 +27,9 @@
   # warning but doesn't propagate). Fail loudly here.
   brew bundle check --verbose
 
+  {{ if not .ci -}}
+  # Only prune unmanaged packages on our own machines. CI images include VS Code
+  # extensions whose dependencies can prevent Homebrew's cleanup from succeeding.
   brew bundle --force cleanup
+  {{ end -}}
 {{ end -}}
